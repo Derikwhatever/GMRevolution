@@ -2,6 +2,7 @@
 /// 08/01/2023
 /// @callmeEthan
 /// Adapted by Derik.whatever to work with DragoniteSpam's Vector3 library.
+/// Added some extra functions that I found handy to have for my own projects.
 function quat(x = 0.00001, y = 0, z = 0, w = 1) constructor {
     self.x = x;
     self.y = y;
@@ -42,6 +43,49 @@ function quat(x = 0.00001, y = 0, z = 0, w = 1) constructor {
 	return new self.Conjugate();
 	}
 	
+	//Returns the dot product of two quaternions
+	static Dot = function(val) {
+	  return self.x*val.x + self.y*val.y + self.z*val.z + self.w*val.w;
+	}
+
+	//Returns the quaternion negated
+	static Negate = function(a) {
+	  return new quat(-a.x, -a.y, -a.z, -a.w);
+	}
+
+	//Returns the quaternion normalized
+	static Normalize = function() {
+	  var l = 1 / sqrt(self.Dot(self));
+	  return quat(l*self.x, l*self.y, l*self.z, l*self.w);
+	}
+
+	//Regular Quaternion Lerp
+	static Lerp = function (val, t) {
+	  // negate second quat if dot product is negative
+	  var l2 = self.Dot(val);
+	  var q = val;
+	  if(l2 < 0.0) 
+	  {
+	    q = q.Negate();
+	  }
+	  var c = new quat();
+	  // c = a + t(b - a)  -->   c = a - t(a - b)
+	  // the latter is slightly better on x64
+	  c.x = self.x - t*(self.x - q.x);
+	  c.y = self.y - t*(self.y - q.y);
+	  c.z = self.z - t*(self.z - q.z);
+	  c.w = self.w - t*(self.w - q.w);
+	  return c;
+	}
+
+	//Normalized Quaternion Lerp (you generally want to use this)
+	static Nlerp = function(val ,t) {
+		var lq = self.Lerp(val, t);
+		lq = lq.Normalize();
+	  return lq;
+	}
+
+
 }
 
 //Convert rotation angle to quaternion angle

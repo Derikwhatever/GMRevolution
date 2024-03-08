@@ -18,7 +18,6 @@ function quat(x = 0.00001, y = 0, z = 0, w = 1) constructor {
 	}
 
 	// Rotate a vector by a quaternion angle
-	// If an array is not supplied, return a new array.
 	// https://www.euclideanspace.com/maths/algebra/realNormedAlgebra/quaternions/transforms/index.html
 	static TransformVec3 = function(vec) {
 		var qx = self.w*self.w*vec.x + 2*self.w*self.w*vec.z - 2*self.z*self.w*vec.y + self.x*self.x*vec.x + 2*self.y*self.x*vec.y + 2*self.z*self.x*vec.z - self.z*self.z*vec.x - self.y*self.y*vec.x;
@@ -45,7 +44,7 @@ function quat(x = 0.00001, y = 0, z = 0, w = 1) constructor {
 	
 }
 
-//Convert rotation (radians) to quaternion angle
+//Convert rotation angle to quaternion angle
 function vec3toquat(vec) {
 
     var cr = cos(vec.x * 0.5);

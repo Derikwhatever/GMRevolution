@@ -2,7 +2,7 @@ An adaptation of callmeEthan's Gamemaker_quaternion library that makes it compat
 
 I've also added myself some extra handy functions to expand the usefulness of the library.
 
-It also shortens all of DragoniteSpam's Vector3 to vec3 which you will also need to do to use it with this, or simply change any vec3 to a Vector3.
+Something to note is it expects all of DragoniteSpam's Vector3 functions to be shortened to vec3 which you will also need to do to use it with this, or change any vec3 to a Vector3, either way.
 
 Links to both of the aforementioned librarys:
 

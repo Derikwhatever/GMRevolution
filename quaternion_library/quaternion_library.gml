@@ -40,7 +40,7 @@ function quat(x = 0.00001, y = 0, z = 0, w = 1) constructor {
 
 	//	Same thing as quaternion conjugate, in case you don't know...
 	static Inverse = function () {
-	return new self.Conjugate();
+	return self.Conjugate();
 	}
 	
 	//Returns the dot product of two quaternions
@@ -56,7 +56,7 @@ function quat(x = 0.00001, y = 0, z = 0, w = 1) constructor {
 	//Returns the quaternion normalized
 	static Normalize = function() {
 	  var l = 1 / sqrt(self.Dot(self));
-	  return quat(l*self.x, l*self.y, l*self.z, l*self.w);
+	  return new quat(l*self.x, l*self.y, l*self.z, l*self.w);
 	}
 
 	//Regular Quaternion Lerp

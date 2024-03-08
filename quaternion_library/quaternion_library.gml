@@ -49,8 +49,8 @@ function quat(x = 0.00001, y = 0, z = 0, w = 1) constructor {
 	}
 
 	//Returns the quaternion negated
-	static Negate = function(a) {
-	  return new quat(-a.x, -a.y, -a.z, -a.w);
+	static Negate = function() {
+	  return new quat(-self.x, -self.y, -self.z, -self.w);
 	}
 
 	//Returns the quaternion normalized
@@ -84,7 +84,6 @@ function quat(x = 0.00001, y = 0, z = 0, w = 1) constructor {
 		lq = lq.Normalize();
 	  return lq;
 	}
-
 
 }
 

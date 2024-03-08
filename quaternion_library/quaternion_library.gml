@@ -45,7 +45,7 @@ function quat(x = 0.00001, y = 0, z = 0, w = 1) constructor {
 	
 }
 
-//Convert Euler rotation angle to quaternion angle
+//Convert rotation (radians) to quaternion angle
 function vec3toquat(vec) {
 
     var cr = cos(vec.x * 0.5);

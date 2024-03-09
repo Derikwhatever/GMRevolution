@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "quaternion_library",
+  "name": "gm_revolution",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {

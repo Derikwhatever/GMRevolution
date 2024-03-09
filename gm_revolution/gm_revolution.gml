@@ -704,7 +704,7 @@ function quat(x = 0.00001, y = 0, z = 0, w = 1) constructor {
 	// Rotate a quaternion around it's local axis.
 	static RotateVec3 = function(vec) {
 		gml_pragma("forceinline");
-		var vec_quat = vec3toquat(vec);
+		var vec_quat = vec.Quat();
 		return self.Mul(vec_quat);
 	}
 
